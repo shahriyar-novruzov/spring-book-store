@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Successfully registered</title>
+    <style>
+        span {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Include header.html -->
+<th:block th:include="/header"></th:block>
+
+<h2>You have successfully registered!</h2>
+
+<ul>
+    <li>User Name: <span th:utext="${newUser.userName}">..</span></li>
+    <li>Email: <span th:utext="${newUser.email}">..</span></li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Fail in registration</title>
+    <style>
+        span {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Include header.html -->
+<th:block th:include="/header"></th:block>
+
+<h2>You failed in registration!</h2>
+
+<div th:class="center" th:if="${error != null}" style="color: red"
+     th:utext="${error}" class="error">...
+</div>
+
+
+</body>
+</html>

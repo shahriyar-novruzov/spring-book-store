@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Online Book Store</title>
+    <style>
+        .center {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<!-- Include header.html -->
+<th:block th:include="/header"></th:block>
+
+<h2 class="center">Book Management</h2>
+
+<div style="display: inline-block;">
+
+    <a th:href="@{/bookAll}">All Books</a>
+
+    &nbsp;
+
+    <a th:href="@{/bookCreate}">Create Book</a>
+
+    &nbsp;
+
+    <a th:href="@{/bookUpdate}">Update Book</a>
+
+    &nbsp;
+
+    <a th:href="@{/bookDelete}">Delete Book</a>
+
+</div>
+
+</body>
+</html>
