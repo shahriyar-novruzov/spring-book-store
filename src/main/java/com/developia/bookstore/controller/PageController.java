@@ -3,9 +3,11 @@ package com.developia.bookstore.controller;
 import com.developia.bookstore.model.Book;
 import com.developia.bookstore.model.Card;
 import com.developia.bookstore.model.Cart;
+import com.developia.bookstore.model.Order;
 import com.developia.bookstore.model.User;
 import com.developia.bookstore.service.BookService;
 import com.developia.bookstore.service.CartService;
+import com.developia.bookstore.service.OrderService;
 import com.developia.bookstore.service.SessionService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -21,12 +23,15 @@ public class PageController {
     private SessionService sessionService;
     private BookService bookService;
     private CartService cartService;
+    private OrderService orderService;
 
     PageController(SessionService sessionService, BookService bookService,
-                   CartService cartService) {
+                   CartService cartService,
+                   OrderService orderService) {
         this.sessionService = sessionService;
         this.bookService = bookService;
         this.cartService = cartService;
+        this.orderService = orderService;
     }
 
     @GetMapping(value = "/ready")
@@ -105,5 +110,14 @@ public class PageController {
         model.addAttribute("card", new Card());
         model.addAttribute("total", cartService.total());
         return "checkoutPage";
+    }
+
+    @GetMapping(value = "/ordersPage")
+    public String ordersPage(Model model) {
+
+        List<Order> orders = orderService.findAll();
+        model.addAttribute("orders", orders);
+
+        return "ordersPage";
     }
 }

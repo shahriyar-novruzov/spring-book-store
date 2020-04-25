@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Online Book Store</title>
+    <style>
+        .center {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<!-- Include header.html -->
+<th:block th:include="/header"></th:block>
+
+<h2 class="center">My orders</h2>
+<br>
+
+<table class="center">
+    <tr>
+        <th>Order Number</th>
+        <th>User</th>
+        <th>Book Count</th>
+        <th>Datetime</th>
+    </tr>
+
+    <tr th:each="order : ${orders}">
+        <td th:text="${order.orderNumber}">123</td>
+        <td th:text="${order.user.userName}">test</td>
+        <td th:text="${order.books.size()}">test</td>
+        <td th:text="${order.dateTime}">test</td>
+    </tr>
+
+</table>
+
+
+</body>
+</html>
